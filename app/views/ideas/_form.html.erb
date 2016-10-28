@@ -1,0 +1,17 @@
+<div class="container-fluid collapse-form">
+  <%= form_for [user, idea], html: {multipart: true} do |f| %>
+    <%= f.text_field :name, placeholder: "Title"%><br/><br/>
+    <%= f.text_area :description, placeholder: "Description"%>
+    <ul class="form-list" align="left">
+      <li><%= f.label :category %></li>
+      <li><%= f.collection_select :category_id, Category.all,:id,:name, include_blank: true %></li><br/>
+
+      <% if idea.image.exists? %>
+      <li><%#= image_tag idea.image.url(:thumb) %></li><br/>
+      <% end %>
+
+      <li><%= f.file_field :image %></li></br>
+      <li class="submit"><%= f.submit %></li>
+    </ul>
+  <% end %>
+<div>

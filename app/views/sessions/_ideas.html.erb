@@ -1,0 +1,32 @@
+<div class="stylelist">
+	<ul>
+		<span style="font-size:40px"><strong>Hello, <%= current_user.name %></strong></span>
+		<li><a class="each-list" data-toggle="collapse" href="#new-idea">New Idea</a>
+			<div id="new-idea" class="collapse">
+				<%= render partial: "ideas/form", locals: { user: @user, idea: @idea } %>
+			</div>
+		</li>
+
+		<% if current_user %>
+		<li><a class="each-list" data-toggle="collapse" href="#new-catg">New Category</a>
+			<div id="new-catg" class="collapse">
+				<%= render partial: "categories/form", locals: { category: @category } %>
+			</div>
+		</li>
+		<% end %>
+
+		<span style="font-size:40px"><strong>Ideas</strong></span>
+	  <% @ideas.each do |idea| %>
+	  <li><a class="each-list" data-toggle="collapse" href="#idea_<%= idea.id %>"><%= idea.name %></a>
+	    <div id="idea_<%= idea.id %>" class="collapse">
+	      <%= render partial: "ideas/form", locals: { user: @user, idea: idea } %><br/>
+	      <strong><%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %></strong>
+	    </div>
+	  </li>
+		<% end %>
+
+		<span style="font-size:40px"><strong>I'm done</strong></span>
+		<li class="each-list"><%= link_to "Logout", logout_path, method: :delete %></li>
+
+	</ul>
+</div>

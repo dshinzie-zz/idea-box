@@ -1,0 +1,9 @@
+<div class="container-fluid collapse-form catg-form">
+  <%= form_for category do |f| %>
+  <div class="catg-list">
+    <%= f.text_field :name, placeholder: "Name" %></br>
+    <%= f.text_field :description, placeholder: "Description" %><br/>
+    <%= submit_tag "Create Category" %>
+  </div>
+  <% end %>
+<div>

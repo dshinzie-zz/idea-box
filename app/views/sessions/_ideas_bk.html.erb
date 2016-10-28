@@ -1,0 +1,19 @@
+<div class="stylelist">
+	<ul>
+		<span class="span-space" style="font-size:30px">Navigation</span>
+		<li> <a data-toggle="collapse" href="#new-idea">New Idea</a>
+			<div id="new-idea" class="collapse">
+				<%= render partial: "ideas/form", locals: { user: @user, idea: @idea } %>
+			</div>
+		</li>
+		<span class="span-space" style="font-size:30px">Ideas</span>
+	  <% @ideas.each do |idea| %>
+	  <li><a data-toggle="collapse" href="#idea_<%= idea.id %>"><%= idea.name %></a>
+	    <div id="idea_<%= idea.id %>" class="collapse">
+	      <%= render partial: "ideas/form", locals: { user: @user, idea: idea } %>
+	      <%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %>
+	    </div>
+	  </li>
+		<% end %>
+	</ul>
+</div>

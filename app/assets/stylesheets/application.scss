@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ .form-list li{
+   display:inline-block;
+   padding: 5px;
+ }
+
+ .form-list{
+   margin-left: -7%;
+ }
+
+ .catg-list{
+   padding: 5px;
+ }
+
+ body {
+    font-family: "Lato", sans-serif;
+}
+
+.stylelist ul{
+  list-style-type: none;
+}
+
+.each-list{
+  font-size: 25px;
+}
+
+.error {
+ padding-top: 10%;
+ text-align: center;
+}
+
+
+li a:hover{
+ font-size: 25px;
+ background: #f6f6f6;
+ margin: 0;
+ padding: 0;
+}
+
+.stylelist li a:hover{
+  font-size: 40px;
+}
+
+li a,
+.newCatg a {
+ text-decoration: none;
+ color: #000;
+
+ -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+ -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+ -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+ -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+ transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.collapse-form{
+  text-align: center;
+  font-size: 16px;
+}
+
+.collapse-form input[type=text]{
+  margin: 0 auto;
+  width: 400px;
+}
+
+.collapse-form text{
+  text-align: left;
+}
+
+.collapse-form textarea{
+  width: 400px;
+  height: 150px;
+}
+
+.collapse-form form {
+  background: -webkit-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  background: linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+  margin: auto;
+  position: relative;
+  width: 450px;
+  height: 350px;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 24px;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.form-collapse input {
+  width: 375px;
+  display: block;
+  border: 1px solid #999;
+  height: 25px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.form-collapse input.button:hover {
+  background: #fff;
+  color: #09C;
+}
+
+input[type=text],
+textarea {
+  padding:5px; border:2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type=text]:focus,
+textarea:focus {
+  border-color:#333;
+}
+
+input[type=submit] {
+  padding:5px 15px; background: #09C;; border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.header {
+  text-align: center;
+  font-size: 60px;
+}
