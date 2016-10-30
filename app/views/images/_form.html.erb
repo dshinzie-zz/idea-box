@@ -1,0 +1,10 @@
+<div class="container-fluid collapse-form img-form">
+  <%= form_for @image_new do |f| %>
+    <%= f.text_field :title, placeholder: "Title"%><br/><br/>
+    <%= f.text_area :description, placeholder: "Description"%>
+
+    <%= f.file_field :image %></br>
+    <%= f.submit %>
+
+  <% end %>
+<div>

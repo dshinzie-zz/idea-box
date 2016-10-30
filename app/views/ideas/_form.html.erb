@@ -5,7 +5,8 @@
     <ul class="form-list" align="left">
       <li><%= f.label :category %></li>
       <li><%= f.collection_select :category_id, Category.all,:id,:name, include_blank: true %></li><br/>
-      <li><%= f.file_field :image %></li></br>
+      <li><%= f.label :images %></li>
+      <li class="image-list"><%= f.collection_select :image_ids, Image.all, :id, :title, { :include_blank => true }  , { :multiple => true }%></li><br/>
       <li class="submit"><%= f.submit %></li>
     </ul>
   <% end %>

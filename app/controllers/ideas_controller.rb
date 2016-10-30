@@ -23,8 +23,8 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find(params[:id])
-
     if @idea.update(idea_params)
+
       flash[:success] = "Idea upated!"
     else
       flash[:error] = "Information missing"
@@ -44,7 +44,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:name, :description, :user_id, :category_id, :image)
+    params.require(:idea).permit(:name, :description, :user_id, :category_id, :image_ids => [])
   end
 
 end

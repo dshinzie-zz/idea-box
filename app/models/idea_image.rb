@@ -1,4 +1,4 @@
 class IdeaImage < ApplicationRecord
-  belongs_to :idea
-  belongs_to :image
+  belongs_to :idea, optional: true
+  belongs_to :image, optional: true
 end

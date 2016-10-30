@@ -14,6 +14,12 @@
 			</div>
 		</li>
 
+		<li><a class="each-list" data-toggle="collapse" href="#new-img">New Image</a>
+			<div id="new-img" class="collapse">
+				<%= render partial: "images/form", locals: { category: @category } %>
+			</div>
+		</li>
+
 		<li><a class="each-list" data-toggle="collapse" href="#all-catg">All Categories</a>
 			<div id="all-catg" class="collapse">
 				<table class="container-fluid collapse-form catg-all">
@@ -29,6 +35,22 @@
 			</div>
 		</li>
 
+		<li><a class="each-list" data-toggle="collapse" href="#all-img">All Images</a>
+			<div id="all-img" class="collapse">
+				<table class="container-fluid collapse-form catg-all">
+					<tr><th>Image</th><th>Title</th><th>Description</th></tr>
+					<% @images.each do |img| %>
+					<tr>
+						<td><%= image_tag img.image.url(:thumb) %></td>
+						<%= render partial: "images/all", locals: { image: img } %>
+						<td><%= link_to "Delete", image_path(img), method: "delete" %></td>
+					</tr>
+					<% end %>
+				</table>
+
+			</div>
+		</li>
+
 		<% end %>
 
 		<span style="font-size:40px"><strong>Ideas</strong></span>
@@ -37,7 +59,10 @@
 	  <li><a class="each-list" data-toggle="collapse" href="#idea_<%= idea.id %>"><%= idea.name %></a>
 	    <div id="idea_<%= idea.id %>" class="collapse">
 	      <%= render partial: "ideas/form", locals: { user: @user, idea: idea } %><br/>
-	      <strong><%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %></strong>
+	      <strong><%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %></strong><br/><br/>
+				<% idea.images.each do |image| %>
+					<p><%= image_tag image.image.url(:medium) %></p>
+				<% end %>
 	    </div>
 	  </li>
 		<% end %>

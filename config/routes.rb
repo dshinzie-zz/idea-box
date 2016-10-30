@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :ideas
   end
   resources :categories
+  resources :images
 
   get    '/login',  to: 'sessions#new',     as: 'login'
   post   '/login',  to: 'sessions#create'

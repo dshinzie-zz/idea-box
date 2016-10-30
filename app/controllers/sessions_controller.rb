@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
     @category = Category.new
     @categories = Category.sorted_categories
     @user_new = User.new
+    @image_new = Image.new
+    @images = Image.all
   end
 
   def new

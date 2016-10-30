@@ -85,7 +85,7 @@ li a,
 
 .collapse-form textarea{
   width: 400px;
-  height: 150px;
+  height: 100px;
 }
 
 .collapse-form form {
@@ -95,7 +95,7 @@ li a,
   margin: auto;
   position: relative;
   width: 450px;
-  height: 365px;
+  height: 360px;
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 14px;
   font-style: italic;
@@ -192,4 +192,10 @@ input[type=submit] {
 
 .account-form form{
   height: 300px;
+}
+
+.image-list select{
+  width: 200px;
+  overflow-y: scroll;
+  height: 60px;
 }
