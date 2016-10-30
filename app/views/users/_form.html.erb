@@ -1,0 +1,25 @@
+<div class="container-fluid collapse-form account-form">
+
+  <%= form_for @user_new, class: "account" do |f| %>
+    <div class="login-input">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="login-input">
+      <%= f.label :email%>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="login-input">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="login-input">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>

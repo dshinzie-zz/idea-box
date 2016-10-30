@@ -7,15 +7,32 @@
 			</div>
 		</li>
 
-		<% if current_user %>
+		<% if current_user.is_admin %>
 		<li><a class="each-list" data-toggle="collapse" href="#new-catg">New Category</a>
 			<div id="new-catg" class="collapse">
 				<%= render partial: "categories/form", locals: { category: @category } %>
 			</div>
 		</li>
+
+		<li><a class="each-list" data-toggle="collapse" href="#all-catg">All Categories</a>
+			<div id="all-catg" class="collapse">
+				<table class="container-fluid collapse-form catg-all">
+					<tr><th>Name</th><th>Description</th></tr>
+					<% @categories.each do |catg| %>
+					<tr>
+						<%= render partial: "categories/all", locals: { category: catg } %>
+						<td><%= link_to "Delete", category_path(catg), method: "delete" %></td>
+					</tr>
+					<% end %>
+				</table>
+
+			</div>
+		</li>
+
 		<% end %>
 
 		<span style="font-size:40px"><strong>Ideas</strong></span>
+
 	  <% @ideas.each do |idea| %>
 	  <li><a class="each-list" data-toggle="collapse" href="#idea_<%= idea.id %>"><%= idea.name %></a>
 	    <div id="idea_<%= idea.id %>" class="collapse">
@@ -26,6 +43,7 @@
 		<% end %>
 
 		<span style="font-size:40px"><strong>I'm done</strong></span>
+
 		<li class="each-list"><%= link_to "Logout", logout_path, method: :delete %></li>
 
 	</ul>

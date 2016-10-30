@@ -1,0 +1,13 @@
+<div class="container-fluid collapse-form login-form">
+  <%= form_tag login_path, class: "login" do %>
+    <div class="login-input">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="login-input">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <%= submit_tag "Login" %>
+  <% end %>
+</div>

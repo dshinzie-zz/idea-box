@@ -2,8 +2,10 @@ class SessionsController < ApplicationController
   def index
     @user = User.find(session[:user]) if session[:user]
     @idea = Idea.new
-    @ideas = Idea.sorted_ideas
+    @ideas = @user.sorted_ideas if session[:user]
     @category = Category.new
+    @categories = Category.sorted_categories
+    @user_new = User.new
   end
 
   def new
@@ -24,6 +26,6 @@ class SessionsController < ApplicationController
   def destroy
     session.clear
     flash[:success] = "Successfully logged out!"
-    redirect_to login_path
+    redirect_to home_path
   end
 end

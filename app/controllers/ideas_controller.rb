@@ -22,11 +22,9 @@ class IdeasController < ApplicationController
   end
 
   def update
-    @idea = Idea.new(idea_params)
-    @idea.user_id = params[:user_id]
+    @idea = Idea.find(params[:id])
 
     if @idea.update(idea_params)
-
       flash[:success] = "Idea upated!"
     else
       flash[:error] = "Information missing"

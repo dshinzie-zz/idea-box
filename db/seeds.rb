@@ -2,18 +2,17 @@ User.destroy_all
 Idea.destroy_all
 Category.destroy_all
 
-USERS = ["test1", "test2", "test3", "tes4", "test5"]
-IDEAS = ["idea1", "idea2", "idea3", "idea4", "idea5"]
-CATEGORIES = ["catg1", "catg2", "catg3", "catg4", "catg5"]
-IS_ADMIN = [true, false]
+IDEAS = ["Make a startup", "Don't make a startup", "Get a Job", "Stay unemployed", "Drink Coffee"]
+CATEGORIES = ["Personal", "Finance", "Career", "Hobbies", "Funny"]
 
 CATEGORIES.each do |catg|
-  Category.create!(name: CATEGORIES.sample)
+  Category.create!(name: catg, description: catg)
 end
 
-USERS.each do |name|
-  user = User.create!(name: name, password: name, email: name, is_admin: IS_ADMIN.sample)
-  5.times do |num|
-    user.ideas.create!(name: IDEAS.sample, description: "What a great idea!", category: Category.all.sample)
-  end
+admin = User.create!(name: "admin", password: "admin", email: "admin", is_admin: true)
+default = User.create!(name: "default", password: "default", email: "default", is_admin: false)
+
+IDEAS.each do |idea|
+  admin.ideas.create!(name: idea, description: "What an okay idea!", category: Category.all.sample)
+  default.ideas.create!(name: idea, description: "What an okay idea!", category: Category.all.sample)
 end

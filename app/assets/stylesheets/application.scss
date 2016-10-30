@@ -16,11 +16,12 @@
 
  .form-list li{
    display:inline-block;
-   padding: 5px;
+   padding: 6px;
  }
 
  .form-list{
    margin-left: -7%;
+   margin-bottom: 3%;
  }
 
  .catg-list{
@@ -94,7 +95,7 @@ li a,
   margin: auto;
   position: relative;
   width: 450px;
-  height: 350px;
+  height: 365px;
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 14px;
   font-style: italic;
@@ -119,21 +120,27 @@ li a,
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 
-
 .form-collapse input.button:hover {
   background: #fff;
   color: #09C;
 }
 
+.catg-form form,
+.login-form form  {
+  height: 200px;
+}
+
 input[type=text],
-textarea {
+textarea,
+input[type=password] {
   padding:5px; border:2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 
 input[type=text]:focus,
-textarea:focus {
+textarea:focus,
+input[type=password]:focus {
   border-color:#333;
 }
 
@@ -147,4 +154,42 @@ input[type=submit] {
 .header {
   text-align: center;
   font-size: 60px;
+  font-style: italic;
+}
+
+.login-input input[type="text"],
+.login-input input[type="password"] {
+  width: 250px;
+}
+
+.login-input label {
+  display: inline-block;
+  text-align: right;
+  width: 150px;
+  margin-left: -25%;
+  padding: 3%;
+}
+
+.catg-all{
+  border-collapse: separate;
+  border-spacing: 30px;
+  margin-top: -8%;
+}
+
+.catg-all th{
+  border-bottom: 1px dotted;
+  font-size: 22px;
+}
+
+.catg-all input[type=text]{
+  width: 120px;
+}
+
+.catg-all textarea{
+  width: 200px;
+  height: 60px;
+}
+
+.account-form form{
+  height: 300px;
 }
