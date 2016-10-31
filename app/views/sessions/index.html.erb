@@ -1,6 +1,6 @@
 <h1 class="header">Track Your "Ideas"!</h1>
-<% if current_user  %>
-  <%= render partial: "ideas" %>
+<% if logged_in?  %>
+  <%= render partial: "logged_in" %>
 <% else %>
   <%= render partial: "login" %>
 <% end %>

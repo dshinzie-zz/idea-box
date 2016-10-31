@@ -1,13 +1,11 @@
 <div class="stylelist">
 	<ul>
 		<span style="font-size:40px"><strong>Hello, Guest</strong></span>
-
 		<li><a class="each-list" data-toggle="collapse" href="#new-user">Create Account</a>
 			<div id="new-user" class="collapse">
-				<%= render partial: "users/form" %>
+				<%= render partial: "users/form", locals: { user: @params[:user_new] } %>
 			</div>
 		</li>
-
 		<li><a class="each-list" data-toggle="collapse" href="#new-idea">Login</a>
 			<div id="new-idea" class="collapse">
 				<%= render partial: "login_form" %>

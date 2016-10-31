@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:create, :update] do
     resources :ideas
   end
-  resources :categories
-  resources :images
+
+  namespace :admin do
+    resources :categories, only: [:create, :update, :destroy]
+    resources :images, only: [:create, :update, :destroy]
+  end
 
   get    '/login',  to: 'sessions#new',     as: 'login'
   post   '/login',  to: 'sessions#create'
@@ -12,6 +15,5 @@ Rails.application.routes.draw do
 
   root 'sessions#index'
   get '/home', to: 'sessions#index', as: 'home'
-
 
 end

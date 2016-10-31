@@ -1,41 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IdeaBox</title>
+    <title>Idea Box</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <script type="text/javascript">
-
-    // function toggle(id) {
-    //     var element = document.getElementById(id);
-    //     if (element) {
-    //         var display = element.style.display;
-    //
-    //         if (display == "none") {
-    //             element.style.display = "initial";
-    //         } else {
-    //             element.style.display = "none";
-    //         }
-    //       }
-    //     }
-    // I suck at javascript
-
-    // $(document).ready(function(){
-    //   $(".toggle").slideUp();
-    //     $(".trigger").click(function(){
-    //         $(this).next(".toggle").slideToggle("slow");
-    //       });
-    //   });
-
-
-    </script>
   <body>
     <% flash.each do |key, value| %>
       <div class="alert-<%= key %>"><%= value %></div>
     <% end %>
-    
     <%= yield %>
   </body>
 </html>

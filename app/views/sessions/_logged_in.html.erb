@@ -1,0 +1,78 @@
+<div class="stylelist">
+	<ul>
+		<span style="font-size:40px"><strong>Hello, <%= current_user.name %></strong></span>
+		<li><a class="each-list" data-toggle="collapse" href="#new-idea">New Idea</a>
+			<div id="new-idea" class="collapse">
+				<%= render partial: "ideas/form", locals: { user: @params[:user], idea: @params[:idea] } %>
+			</div>
+		</li>
+
+		<% if current_user.is_admin %>
+		<li><a class="each-list" data-toggle="collapse" href="#new-catg">New Category</a>
+			<div id="new-catg" class="collapse">
+				<%= render partial: "admin/categories/form", locals: { category: @params[:category] } %>
+			</div>
+		</li>
+
+		<li><a class="each-list" data-toggle="collapse" href="#new-img">New Image</a>
+			<div id="new-img" class="collapse">
+				<%= render partial: "admin/images/form", locals: { image: @params[:image] } %>
+			</div>
+		</li>
+
+		<li><a class="each-list" data-toggle="collapse" href="#all-catg">All Categories</a>
+			<div id="all-catg" class="collapse">
+				<table class="container-fluid collapse-form catg-all">
+					<tr><th>Name</th><th>Description</th></tr>
+					<% @params[:categories].each do |catg| %>
+					<tr>
+						<%= render partial: "admin/categories/all", locals: { category: catg } %>
+						<td><%= link_to "Delete", admin_category_path(catg), method: "delete" %></td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+		</li>
+
+		<li><a class="each-list" data-toggle="collapse" href="#all-img">All Images</a>
+			<div id="all-img" class="collapse">
+				<table class="container-fluid collapse-form catg-all">
+					<tr><th>Image</th><th>Title</th><th>Description</th></tr>
+					<% @params[:images].each do |img| %>
+					<tr>
+						<td><%= image_tag img.image.url(:thumb) %></td>
+						<%= render partial: "admin/images/all", locals: { image: img } %>
+						<td><%= link_to "Delete", admin_image_path(img), method: "delete" %></td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+		</li>
+		<% end %>
+
+		<span style="font-size:40px"><strong>Ideas</strong></span>
+	  <% @params[:ideas].each do |idea| %>
+	  <li><a class="each-list" data-toggle="collapse" href="#idea_<%= idea.id %>"><%= idea.name %></a>
+	    <div id="idea_<%= idea.id %>" class="collapse">
+
+	      <%= render partial: "ideas/form", locals: { user: @params[:user], idea: idea } %><br/>
+				
+	      <strong><%= link_to "Delete", user_idea_path(@params[:user], idea), method: "delete" %></strong><br/><br/>
+				<% idea.images.each do |image| %>
+					<p><%= image_tag image.image.url(:medium) %></p>
+				<% end %>
+	    </div>
+	  </li>
+		<% end %>
+
+		<span style="font-size:40px"><strong>Settings</strong></span>
+		<li><a class="each-list" data-toggle="collapse" href="#my-profile">My Account</a>
+			<div id="my-profile" class="collapse">
+
+				<%= render partial: "users/form", locals: { user: @params[:user] } %>
+
+			</div>
+		</li>
+		<li class="each-list"><%= link_to "Logout", logout_path, method: :delete %></li>
+	</ul>
+</div>

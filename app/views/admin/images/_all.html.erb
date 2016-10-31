@@ -1,0 +1,7 @@
+<div>
+  <%= form_for [:admin, image] do |f| %>
+    <td><%= f.text_field :title %></td>
+    <td><%= f.text_field :description %></td>
+    <td><%= f.submit "Update" %></td>
+  <% end %>
+</div>

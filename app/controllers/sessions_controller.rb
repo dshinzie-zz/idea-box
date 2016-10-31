@@ -1,13 +1,7 @@
 class SessionsController < ApplicationController
+  before_action :set_params
+
   def index
-    @user = User.find(session[:user]) if session[:user]
-    @idea = Idea.new
-    @ideas = @user.sorted_ideas if session[:user]
-    @category = Category.new
-    @categories = Category.sorted_categories
-    @user_new = User.new
-    @image_new = Image.new
-    @images = Image.all
   end
 
   def new
@@ -16,12 +10,13 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
 
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user] = @user.id
       flash[:success] = "Successfully logged in!"
       redirect_to home_path
     else
-      render :new
+      flash[:notice] = "Wrong Credentials"
+      render :index
     end
   end
 
@@ -30,4 +25,11 @@ class SessionsController < ApplicationController
     flash[:success] = "Successfully logged out!"
     redirect_to home_path
   end
+
+  private
+
+  def set_params
+    @params = SessionHelper.set_session_params(session)
+  end
+
 end
