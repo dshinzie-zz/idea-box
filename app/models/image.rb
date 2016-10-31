@@ -1,7 +1,7 @@
 class Image < ApplicationRecord
   validates :title, presence: true
 
-  has_many :idea_images
+  has_many :idea_images, dependent: :destroy
   has_many :ideas, through: :idea_images
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }

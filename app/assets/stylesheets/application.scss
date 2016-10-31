@@ -14,6 +14,13 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ body{
+   background-image: url(background.png);
+   background-size: cover;
+   background-attachment: fixed;
+   background-position: right 10px bottom 545px;
+ }
+
  .form-list li{
    display:inline-block;
    padding: 6px;
@@ -126,13 +133,18 @@ li a,
 }
 
 .catg-form form,
-.login-form form  {
+.login-form form {
   height: 200px;
+}
+
+.img-form form {
+  height: 250px;
 }
 
 input[type=text],
 textarea,
-input[type=password] {
+input[type=password],
+select {
   padding:5px; border:2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -140,12 +152,15 @@ input[type=password] {
 
 input[type=text]:focus,
 textarea:focus,
-input[type=password]:focus {
+input[type=password]:focus,
+select:focus {
   border-color:#333;
 }
 
 input[type=submit] {
-  padding:5px 15px; background: #09C;; border:0 none;
+  padding:5px 15px;
+  background: #7ec0ee;
+  border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -182,12 +197,16 @@ input[type=submit] {
 }
 
 .catg-all input[type=text]{
-  width: 120px;
+  width: 150px;
+  border: 0;
+  background-color: transparent;
 }
 
 .catg-all textarea{
   width: 200px;
   height: 60px;
+  border: 0;
+  background-color: transparent;
 }
 
 .account-form form{

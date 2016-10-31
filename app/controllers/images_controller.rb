@@ -1,7 +1,6 @@
 class ImagesController < ApplicationController
 
   def index
-
   end
 
   def new
@@ -33,7 +32,7 @@ class ImagesController < ApplicationController
 
   def destroy
     @image = Image.find(params[:id])
-    @image.delete
+    @image.destroy
 
     flash[:success] = "#{@image.title} was successfully deleted!"
     redirect_to home_path

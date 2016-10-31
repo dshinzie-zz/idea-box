@@ -3,7 +3,7 @@ class Idea < ApplicationRecord
   belongs_to :user
   belongs_to :category, optional: true
 
-  has_many :idea_images
+  has_many :idea_images, dependent: :destroy
   has_many :images, through: :idea_images
 
   def sorted_ideas

@@ -34,7 +34,7 @@ class IdeasController < ApplicationController
 
   def destroy
     @idea = Idea.find(params[:id])
-    @idea.delete
+    @idea.destroy
 
     flash[:success] = "#{@idea.name} was successfully deleted!"
     redirect_to home_path
