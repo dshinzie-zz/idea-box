@@ -25,7 +25,7 @@
 				<table class="container-fluid collapse-form catg-all">
 					<tr><th>Name</th><th>Description</th></tr>
 					<% @params[:categories].each do |catg| %>
-					<tr>
+					<tr class=catg_<%= catg.id %>>
 						<%= render partial: "admin/categories/all", locals: { category: catg } %>
 						<td><%= link_to "Delete", admin_category_path(catg), method: "delete" %></td>
 					</tr>
@@ -56,7 +56,7 @@
 	    <div id="idea_<%= idea.id %>" class="collapse">
 
 	      <%= render partial: "ideas/form", locals: { user: @params[:user], idea: idea } %><br/>
-				
+
 	      <strong><%= link_to "Delete", user_idea_path(@params[:user], idea), method: "delete" %></strong><br/><br/>
 				<% idea.images.each do |image| %>
 					<p><%= image_tag image.image.url(:medium) %></p>

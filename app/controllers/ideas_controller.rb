@@ -1,12 +1,5 @@
 class IdeasController < ApplicationController
 
-  def new
-    @idea = Idea.new
-  end
-
-  def show
-  end
-
   def create
     @idea = Idea.new(idea_params)
     @idea.user_id = params[:user_id]

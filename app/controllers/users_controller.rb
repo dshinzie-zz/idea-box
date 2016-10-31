@@ -10,7 +10,9 @@ class UsersController < ApplicationController
       session[:user] = @user.id
       redirect_to home_path
     else
-      render :new
+      @params = SessionHelper.set_session_params(session)
+      flash[:notice] = "Information missing"
+      render :login
     end
   end
 
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      flash[:success] = "User upated!"
+      flash[:success] = "Account updated!"
     else
       flash[:error] = "Information missing"
     end

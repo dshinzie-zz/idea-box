@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:create, :update] do
-    resources :ideas
+    resources :ideas, only: [:create, :update, :destroy]
   end
 
   namespace :admin do
